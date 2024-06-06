@@ -1,0 +1,81 @@
+.container-sider-right{
+    height: 100vh;
+    .header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: white;
+        .btn-menu{
+            margin-left: 28px;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            &:hover{
+                background-color: #17181c;
+            }
+        }
+        .name-brand{
+            background-image: url('../../../assets/images/HomeMoviestext.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100px;
+            height: 83px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+    }
+    .sub-header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .menu{
+        padding-top: 40px;
+        color: white;
+        font-family: "Istok Web", sans-serif;
+        font-weight: 500;
+        height: 80%;
+        .main-menu{
+            height: 100%;
+            list-style-type: none ;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .title-menu{
+                font-size: 18px;
+                .sub-menu{
+                    padding-left: 0px;
+                    .sub-li{
+                        cursor: pointer;
+                        margin-top: 5px;
+                        list-style-type: none ;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: 10px;
+                        .icon{
+                            font-size: 20px;
+                            width: 25px;
+                            text-align: center;
+                        }
+                        &:hover{
+                            color: #07b8a0;
+                        }
+                    }
+                    .active{
+                        border-right: 3px solid #07b8a0;
+                        color: #07b8a0;
+                    }
+                }
+            }
+        }
+        
+    }
+}

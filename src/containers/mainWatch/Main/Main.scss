@@ -1,0 +1,21 @@
+.container-main{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    .sider1{
+        width: 12%;
+    }
+    .content-main{
+        width: 73%;
+    }
+    .sider2{
+        width: 15%;
+        z-index: 9;
+    }
+}
+.bg-sider{
+    background-color: #21232f;
+}
+.bg-main{
+    background-color: #17181c;
+}
