@@ -95,7 +95,32 @@ const getGenresMovie = (language) => {
         }
     })
 }
+const getCreditMovie = (id, language) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const fetch = require('node-fetch');
+
+            const url = `https://api.themoviedb.org/3/movie/${id}/credits?language=${language}`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: `Bearer ${ApiKey.TokenAuth}`
+                }
+            };
+
+            fetch(url, options)
+                .then(res => res.json())
+                .then(json => resolve(json))
+                .catch(err => console.error('error:' + err));
+        } catch (e) {
+            reject(e)
+        }
+    })
+
+}
 export {
     getMoviesFromDB, getDetailMovieFromDB,
-    getVideoMovieFromDB, getGenresMovie
+    getVideoMovieFromDB, getGenresMovie,
+    getCreditMovie
 }

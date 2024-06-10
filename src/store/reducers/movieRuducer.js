@@ -5,7 +5,8 @@ const initialState = {
     movieListTopRated: [],
     detailsMovie: {},
     videoMovie: [],
-    genresMovie: []
+    genresMovie: [],
+    creditMovie: []
 }
 
 const movieReducer = (state = initialState, action) => {
@@ -52,6 +53,15 @@ const movieReducer = (state = initialState, action) => {
                 genresMovie: action.data
             }
         case actionTypes.FETCH_GENRES_MOVIE_FAIL:
+            return {
+                ...state,
+            }
+        case actionTypes.FETCH_CREDIT_MOVIE_SUCCESS:
+            return {
+                ...state,
+                creditMovie: action.data
+            }
+        case actionTypes.FETCH_CREDIT_MOVIE_FAIL:
             return {
                 ...state,
             }

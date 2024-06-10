@@ -1,7 +1,7 @@
 import actionTypes from "./actionTypes";
 import {
     getMoviesFromDB, getDetailMovieFromDB, getVideoMovieFromDB,
-    getGenresMovie
+    getGenresMovie, getCreditMovie
 } from "../../services/movieService";
 
 export const fetchMovie = (typeSort, page, language, year) => {
@@ -32,7 +32,7 @@ export const fetchVideoMovie = (id, language) => {
     return async (dispatch, getState) => {
         try {
             let res = await getVideoMovieFromDB(id, language)
-            console.log("check res", res);
+            // console.log("check res", res);
             if (res) {
                 dispatch(fetchVideoMovieSuccess(res))
             } else {
@@ -99,4 +99,28 @@ export const fetchGenresMovieSuccess = (res) => ({
 })
 export const fetchGenresMovieFail = () => ({
     type: actionTypes.FETCH_GENRES_MOVIE_FAIL,
+})
+//Credit Movie
+export const fetchCreditMovie = (id, language) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getCreditMovie(id, language)
+            // console.log("Check res: ", res);
+            if (res) {
+                dispatch(fetchCreditMovieSuccess(res))
+            } else {
+                dispatch(fetchCreditMovieFail())
+            }
+        } catch (e) {
+            console.log("fetchCreditMovieFail code error: ", e);
+            dispatch(fetchCreditMovieFail())
+        }
+    }
+}
+export const fetchCreditMovieSuccess = (res) => ({
+    type: actionTypes.FETCH_CREDIT_MOVIE_SUCCESS,
+    data: res
+})
+export const fetchCreditMovieFail = () => ({
+    type: actionTypes.FETCH_CREDIT_MOVIE_FAIL,
 })
