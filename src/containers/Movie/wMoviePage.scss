@@ -184,10 +184,10 @@
                     margin-bottom: 1.5em;
                     color: #b5b5b5 !important;
                 }
-                .actor{
+                .actor, .trailer{
                     margin-bottom: 1.5rem;
 
-                    .title-actor{
+                    .title-actor, .title-trailer{
                         font-size: 1rem;
                         font-weight: 700;
                         text-transform: uppercase;
@@ -207,6 +207,10 @@
                                 background-position: center center;
                                 background-repeat: no-repeat;
                                 border-radius: 50%;
+                                cursor: pointer;
+                                &:hover{
+                                    border: 2px solid #00bab3 ;
+                                }
                             }
                             .name-actor{
                                 display: flex;
@@ -226,14 +230,49 @@
                                 text-align: center;
                                 color: #7a7a7a;
                             }
+                        }         
+                    }
+                    .trailer-list{
+                        .slick-slide{
+                            display: flex !important;
+                            align-items: center;
+                            justify-content: center;
                         }
-                        
+                        .container-list-videoM{
+                            // border: 1px solid red;
+                            width: 200px !important;
+                            height: 120px;
+                            .img-video{
+                                width: 200px;
+                                height: 120px;
+                                background-size: cover;
+                                background-position: center center;
+                                background-repeat: no-repeat;
+                                border-radius: 10px;
+                                cursor: pointer;
+                                &:hover{
+                                    border: 2px solid #00bab3;
+                                    box-shadow: 0px 0px 200px -2px rgba(0,0,0,0.75) inset;
+                                }
+                                &:hover > .play-video{
+                                    display: flex;
+                                }
+                            }
+                            .play-video{
+                                height: 100%;
+                                font-size: 40px;
+                                display: none;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                        }
                     }
                 }
             }
         }
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .container-dMovie{
         .section-dMovie{

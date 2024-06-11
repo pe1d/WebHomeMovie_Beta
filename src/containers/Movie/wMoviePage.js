@@ -69,28 +69,28 @@ class wMoviePage extends Component {
     }
     render() {
         let settings = {
-            infinite: true,
             speed: 500,
             slidesToShow: 5,
             slidesToScroll: 5,
             infinite: false,
+            initialSlide: 0,
             responsive: [
                 {
-                    breakpoint: 1024,
+                    breakpoint: 1324,
                     settings: {
                         slidesToShow: 4,
                         slidesToScroll: 4,
                     }
                 },
                 {
-                    breakpoint: 600,
+                    breakpoint: 932,
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 3,
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 680,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 2,
@@ -98,10 +98,41 @@ class wMoviePage extends Component {
                 }
             ]
         };
+        let settingsTrailer = {
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: false,
+            initialSlide: 0,
+            responsive: [
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    }
+                },
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 680,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }
+            ]
+        };
         const { language } = this.props;
-        let { detailMovie, creditMovie } = this.state
-        console.log(detailMovie);
-        console.log(creditMovie);
+        let { detailMovie, creditMovie, vidMovie } = this.state
+        // console.log(detailMovie);
+        // console.log(creditMovie);
+        console.log(vidMovie);
         let trailer = this.rederTrailer()
         let year = new Date(detailMovie.release_date)
         let timeHour = moment().startOf('day').add(detailMovie.runtime, 'minutes').format(`hh`);
@@ -195,6 +226,28 @@ class wMoviePage extends Component {
                                                                 <div className='name-character'>
                                                                     {item.character}
                                                                 </div>
+                                                            </div>
+                                                        )
+                                                    }
+                                                })
+                                            }
+                                        </Slider>
+                                    </div>
+                                </div>
+                                <div className='trailer'>
+                                    <div className='title-trailer'>Trailer</div>
+                                    <div className='trailer-list'>
+                                        <Slider {...settingsTrailer}>
+                                            {vidMovie && vidMovie.length > 0 &&
+                                                vidMovie.map((item, index) => {
+                                                    if (index < 20) {
+                                                        return (
+                                                            <div className='container-list-videoM' >
+                                                                <div className='img-video'
+                                                                    style={{ backgroundImage: `url(https://img.youtube.com/vi/${item.key}/mqdefault.jpg)` }}>
+                                                                    <div className='play-video'><i className="fas fa-play" /></div>
+                                                                </div>
+
                                                             </div>
                                                         )
                                                     }

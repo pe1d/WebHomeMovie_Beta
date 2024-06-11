@@ -33,7 +33,8 @@ class Main extends Component {
                             style={{ height: '100vh', width: '100%' }}
                             autoHide='true'
                         >
-                            <ListMain />
+                            {/* <ListMain /> */}
+                            <WMoviePage />
                         </Scrollbars>
                     </div>
                     <div className='sider2 bg-sider'>
