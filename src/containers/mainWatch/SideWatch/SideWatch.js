@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import './SiderWatch.scss'
+import './SideWatch.scss'
 import * as actions from "../../../store/actions";
 import HeaderSW from './Header/headerSW';
 import BodySW from './Body/bodySW';
-class SiderWatch extends Component {
+class SideWatch extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,7 +16,7 @@ class SiderWatch extends Component {
         let { notice, noticeBox, noticeList } = this.state
         return (
             <>
-                <div className='container-sider-left'>
+                <div className='container-side-left'>
                     <div className='csl-header'>
                         <HeaderSW />
                     </div>
@@ -42,4 +42,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SiderWatch);
+export default connect(mapStateToProps, mapDispatchToProps)(SideWatch);

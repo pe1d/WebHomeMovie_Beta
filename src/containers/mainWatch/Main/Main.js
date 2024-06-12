@@ -2,9 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import './Main.scss'
 import * as actions from "../../../store/actions";
-import SiderInfo from '../SiderInfo/SiderInfo';
+import SideInfo from '../SideInfo/SideInfo';
 import ListMain from '../ListMain/ListMain';
-import SiderWatch from '../SiderWatch/SiderWatch';
+import SideWatch from '../SideWatch/SideWatch';
 import { Scrollbars } from 'react-custom-scrollbars';
 import WMoviePage from '../../Movie/wMoviePage';
 class Main extends Component {
@@ -19,13 +19,13 @@ class Main extends Component {
         return (
             <>
                 <div className='container-main'>
-                    <div className='sider1 bg-sider'>
+                    <div className='side1 bg-side'>
                         <Scrollbars
                             style={{ width: '100vh', width: '100%' }}
                             autoHide='true'
                         >
 
-                            <SiderInfo />
+                            <SideInfo />
                         </Scrollbars>
                     </div>
                     <div className='content-main bg-main '>
@@ -37,9 +37,9 @@ class Main extends Component {
                             {/* <WMoviePage /> */}
                         </Scrollbars>
                     </div>
-                    <div className='sider2 bg-sider'>
+                    <div className='side2 bg-side'>
                         <Scrollbars style={{ height: '100vh', width: '100%' }}>
-                            <SiderWatch />
+                            <SideWatch />
                         </Scrollbars>
                     </div>
                 </div >

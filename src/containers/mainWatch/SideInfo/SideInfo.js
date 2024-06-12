@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import './SiderInfo.scss'
+import './SideInfo.scss'
 import * as actions from "../../../store/actions";
 import { LANGUAGES } from '../../../untils';
 import '../../Auth/About.scss'
 import Menu from './Menu/Menu';
-class SiderInfo extends Component {
+class SideInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +27,7 @@ class SiderInfo extends Component {
         const { userInfo, language } = this.props;
         return (
             <>
-                <div className='container-sider-right'>
+                <div className='container-side-right'>
                     <div className='header'>
                         <div className='btn-menu col-4' onClick={() => this.handleChangeMenu()}>
                             <i className="fas fa-bars"></i>
@@ -65,4 +65,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SiderInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(SideInfo);

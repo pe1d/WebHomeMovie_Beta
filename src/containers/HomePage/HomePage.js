@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from 'react-router-dom';
-import SiderInfo from '../mainWatch/SiderInfo/SiderInfo.js';
+// import SideInfo from '../mainWatch/SideInfo/SideInfo.js';
 import Main from '../mainWatch/Main/Main.js';
 
 class HomePage extends Component {

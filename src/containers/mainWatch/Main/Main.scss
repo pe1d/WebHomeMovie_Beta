@@ -2,18 +2,18 @@
     display: flex;
     width: 100%;
     overflow: hidden;
-    .sider1{
+    .side1{
         width: 12%;
     }
     .content-main{
         width: 73%;
     }
-    .sider2{
+    .side2{
         width: 15%;
         z-index: 9;
     }
 }
-.bg-sider{
+.bg-side{
     background-color: #21232f;
 }
 .bg-main{
