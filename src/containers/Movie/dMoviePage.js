@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import './wMoviePage.scss'
+import './dMoviePage.scss'
 import * as actions from "../../store/actions";
 import StarRatings from 'react-star-ratings';
 import HomeFooter from '../HomePage/HomeFooter'
@@ -10,7 +10,7 @@ import { Redirect, withRouter } from 'react-router';
 import YouTube from 'react-youtube';
 import Slider from 'react-slick';
 import moment from 'moment/moment';
-class wMoviePage extends Component {
+class dMoviePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -63,7 +63,6 @@ class wMoviePage extends Component {
             director = creditMovie.crew.find((e) => {
                 return e.department === role
             })
-            // console.log('dao dien', director.name);
         }
         return director.name
     }
@@ -152,7 +151,7 @@ class wMoviePage extends Component {
                                     videoId={trailer.key}
                                 />
                             } */}
-                            <div className='columm-1-4'>
+                            <div className='column-1-4'>
                                 <div className='poster-movie' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${detailMovie.poster_path})` }}></div>
                                 <div className='btn-watch'><i className="fas fa-play"></i> watch</div>
                             </div>
@@ -285,4 +284,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(wMoviePage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(dMoviePage));

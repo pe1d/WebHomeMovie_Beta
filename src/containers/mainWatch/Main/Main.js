@@ -6,7 +6,6 @@ import SideInfo from '../SideInfo/SideInfo';
 import ListMain from '../ListMain/ListMain';
 import SideWatch from '../SideWatch/SideWatch';
 import { Scrollbars } from 'react-custom-scrollbars';
-import WMoviePage from '../../Movie/wMoviePage';
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -34,7 +33,6 @@ class Main extends Component {
                             autoHide='true'
                         >
                             <ListMain />
-                            {/* <WMoviePage /> */}
                         </Scrollbars>
                     </div>
                     <div className='side2 bg-side'>

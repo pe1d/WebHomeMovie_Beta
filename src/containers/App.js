@@ -12,7 +12,7 @@ import Home from '../containers/HomePage/Home.js'
 import HomePage from './HomePage/HomePage.js';
 import About from './Auth/About.js';
 import './App.scss'
-import wMoviePage from './Movie/wMoviePage.js';
+import dMoviePage from './Movie/dMoviePage.js';
 class App extends Component {
 
   handlePersistorState = () => {
@@ -45,7 +45,7 @@ class App extends Component {
                   <Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
                   <Route path={path.HOMEPAGE} component={userIsAuthenticated(HomePage)} />
                   <Route path={path.ABOUT} component={userIsNotAuthenticated(About)} />
-                  <Route path={path.WATCH} component={userIsAuthenticated(wMoviePage)} />
+                  <Route path={path.WATCH} component={userIsAuthenticated(dMoviePage)} />
                 </Switch>
               </Scrollbars>
             </div>
