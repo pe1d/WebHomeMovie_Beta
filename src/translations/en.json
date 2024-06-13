@@ -66,5 +66,18 @@
         "continue": "Continue",
         "top-rated": "Top Rated",
         "genres": "Genres"
+    },
+    "dMoviePage": {
+        "watch": "Watch now",
+        "hours": "hour",
+        "minutes": "minutes",
+        "share": "Share",
+        "watchlist": "Watchlist",
+        "director": "Director",
+        "writer": "Writer",
+        "nation": "Nation",
+        "release-date": "Release date",
+        "actor": "Actors",
+        "trailer": "Trailers"
     }
 }

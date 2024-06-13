@@ -66,5 +66,18 @@
         "continue": "Tiếp tục",
         "top-rated": "Đánh giá cao",
         "genres": "Thể loại"
+    },
+    "dMoviePage": {
+        "watch": "Xem Ngay",
+        "hours": "giờ",
+        "minutes": "phút",
+        "share": "Chia sẻ",
+        "watchlist": "Xem sau",
+        "director": "Đạo diễn",
+        "writer": "Kịch bản",
+        "nation": "Quốc gia",
+        "release-date": "Khởi chiếu",
+        "actor": "Diễn viên",
+        "trailer": "Trailers"
     }
 }
