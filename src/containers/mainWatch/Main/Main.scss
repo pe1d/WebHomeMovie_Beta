@@ -10,7 +10,6 @@
     }
     .side2{
         width: 15%;
-        z-index: 9;
     }
 }
 .bg-side{
@@ -18,4 +17,12 @@
 }
 .bg-main{
     background-color: #17181c;
+}
+@media only screen and (max-width: 1024px) {
+    .side1, .side2{
+        display: none;
+    }
+    .content-main{
+        width: 100% !important;
+    }
 }

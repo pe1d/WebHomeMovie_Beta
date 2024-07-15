@@ -1,54 +1,72 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { createPortal } from 'react-dom';
 import './headerSW.scss'
 import * as actions from "../../../../store/actions";
 import { LANGUAGES } from '../../../../untils';
+import ReactModal from 'react-modal';
+import Scrollbars from 'react-custom-scrollbars';
 class headerSW extends Component {
     constructor(props) {
         super(props);
         this.state = {
             userName: '',
             avatar: '',
-            noticeBox: false,
             noticeList: [
                 { id: '1', title: 'notice 1', date: 1716722226, status: 'N' },
                 { id: '2', title: 'notice 2', date: 1716376619, status: 'O' },
-                { id: '3', title: 'notice 3', date: 1708600619, status: 'N' }
+                { id: '3', title: 'notice 3', date: 1708600619, status: 'N' },
+                { id: '4', title: 'notice 4', date: 1716376619, status: 'N' },
+                { id: '5', title: 'notice 5', date: 1708600619, status: 'N' },
+                { id: '6', title: 'notice 6', date: 1716376619, status: 'O' },
+                { id: '7', title: 'notice 7', date: 1708600619, status: 'N' }
             ],
+            showModal: false
         }
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
     }
-    handleViewNoti = () => {
+    handleOpenModal = () => {
         this.setState({
-            notice: null,
-            noticeBox: !this.state.noticeBox,
-        })
+            showModal: !this.state.showModal,
+        });
+    }
+
+    handleCloseModal = () => {
+        this.setState({ showModal: false });
     }
     handleClickONnotice = (noti) => {
-        console.log(noti);
+        console.log('why');
         let { noticeList } = this.state
-        noticeList.map((item) => {
+        let newNotice = noticeList.map((item) => {
             if (item.id == noti.id && noti.status == 'N') {
                 item.status = 'O';
             }
             return item;
         })
-        // console.log(noticeList);
+        this.setState({
+            noticeList: newNotice
+        })
     }
     handleDeleteNotice = (noti) => {
         let { noticeList } = this.state
+        console.log('check noti: ', noti);
         let newNoti = noticeList.filter((item) => {
+            console.log('check item', item);
             return item.id !== noti.id;
         })
-        // console.log('new noti after deleted', newNoti);
+        console.log('check new noti', newNoti);
         this.setState({
             noticeList: newNoti
+        }, () => {
+            console.log('check state: ', this.state);
         })
     }
     render() {
-        let { noticeBox, noticeList } = this.state
+        let { noticeList, showModal } = this.state
         return (
             <>
-                <div typeof='button' className='btn-noti' onClick={() => this.handleViewNoti()} >
+                <div typeof='button' className='btn-noti' onClick={() => this.handleOpenModal()} >
                     {noticeList && noticeList.length > 0 &&
                         noticeList.map((item, index) => {
                             let allNotice = noticeList.filter((e) => {
@@ -61,40 +79,8 @@ class headerSW extends Component {
                                 < div class="btn-badge pulse-button">{allNotice}</div>
                             )
                         })
-
                     }
-                    <i className="fas fa-bell"></i>
-                    {noticeBox && noticeBox === true &&
-                        <div class="box">
-                            <div class="display">
-                                <div class="nothing">
-                                    <i class="fas fa-child stick"></i>
-                                    <div class="cent">Looks Like your all caught up!</div>
-                                </div>
-                                <div class="cont">
-                                    {noticeList && noticeList.length > 0 &&
-                                        noticeList.map((item, index) => {
-                                            return (
-                                                <div class="sec" key={index} onClick={() => this.handleClickONnotice(item)}>
-                                                    <div className='delete-noti' onClick={() => this.handleDeleteNotice(item)}>x</div>
-                                                    <div className='profile'></div>
-                                                    <div class="profCont">
-                                                        <div class="txt">{item.title}</div>
-                                                        <div class="txt sub">{new Date(item.date * 1000).toLocaleString()}</div>
-                                                    </div>
-                                                    {item.status && item.status === 'N' &&
-                                                        <div className='new'>
-                                                            <i class="fas fa-circle"></i>
-                                                        </div>
-                                                    }
-                                                </div>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    }
+                    <i className="fas fa-bell" ></i>
                 </div>
                 <div className='user'>
                     <div className='name'>Xuan Diep</div>
@@ -102,6 +88,42 @@ class headerSW extends Component {
                     <div className='logo' style={{ backgroundImage: `url(${this.state.avatar})` }}>
                     </div>
                 </div>
+                <ReactModal
+                    isOpen={this.state.showModal}
+                    contentLabel="noti-box"
+                    onRequestClose={this.handleCloseModal}
+                    shouldCloseOnOverlayClick={true}
+                    className="Modal-1"
+                    overlayClassName="Overlay-1"
+                >
+
+                    <div className='box-noti'>
+                        <Scrollbars style={{ height: '100%', width: '100%' }}>
+                            {noticeList && noticeList.length > 0 &&
+                                noticeList.map((item, index) => {
+                                    return (
+                                        <div class="sec" key={index} >
+                                            <div className='delete-noti' onClick={() => this.handleDeleteNotice(item)} >
+                                                <i className="far fa-times-circle"></i>
+                                            </div>
+                                            <div className='profile'></div>
+                                            <div class="profCont">
+                                                <div class="txt">{item.title}</div>
+                                                <div class="txt sub">{new Date(item.date * 1000).toLocaleString()}</div>
+                                            </div>
+                                            {item.status && item.status === 'N' &&
+                                                <div className='new' onClick={() => this.handleClickONnotice(item)}>
+                                                    <i class="fas fa-circle"></i>
+                                                </div>
+                                            }
+                                        </div>
+                                    )
+                                })
+                            }
+                        </Scrollbars>
+                    </div>
+
+                </ReactModal>
             </>
         )
     }

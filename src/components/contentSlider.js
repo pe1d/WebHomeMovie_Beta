@@ -34,6 +34,29 @@ class contentSilder extends Component {
             slidesToShow: 5,
             slidesToScroll: 5,
             arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1680,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                    }
+                },
+                {
+                    breakpoint: 1400,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                    }
+                },
+                {
+                    breakpoint: 1040,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+            ]
         };
         let { listMovie, favor } = this.state
         // console.log(this.state);

@@ -9,7 +9,7 @@
     justify-content: center;
     border-radius: 10px;
     cursor: pointer;
-    z-index: 11;
+    z-index: 5;
     .btn-badge{
         background: #FF5D5D;
         color: white;
@@ -33,89 +33,6 @@
     &:hover > .btn-badge{
         animation: none;
     }
-    .box{       
-        z-index: 12;
-        width: 400px;
-        height: 30vh;
-        border-radius: 10px;
-        transition: 0.5s;
-        position: absolute;
-        overflow-y: scroll;
-        padding: 0px;
-        right: 0px;
-        top:40px;
-        background-color: #F4F4F4;
-        -webkit-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.2);
-        -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
-        box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
-        cursor: context-menu;
-        .display{
-            position: relative;
-            .cont{
-                position: absolute;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #F4F4F4;
-                &:empty{
-                    display: none;
-                }
-                .sec{
-                    padding: 25px 10px;
-                    background-color: #F4F4F4;
-                    transition: 0.5s;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    border-bottom: 1px solid #4d5257;
-                    color: black;
-                    gap: 20px;
-                    position: relative;
-                    &:hover{
-                        background-color: #BFBFBF;
-                    }
-                    .profile{
-                        width: 75px;
-                        height: 75px;
-                        background-color: black;
-                        border-radius: 50%;
-                    }
-                    .profCont{
-                        .txt{
-                            vertical-align: top;
-                            font-size: 1.25rem;
-                            padding: 5px 10px 0px 15px;
-                        }
-                        .sub{
-                            font-size: 1rem;
-                            color: grey;
-                        }
-                    }    
-                    .delete-noti{
-                        padding-left: 10px;
-                        cursor: pointer;
-                    }  
-                    .new{
-                        position: absolute;
-                        top:0px;
-                        right: 5px;
-                        color: red;
-                        font-size: 14px;
-                    }                            
-                }
-                
-            }
-            .nothing{
-                color: black;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding-top: 20px;
-            }
-            
-        }
-    }
-    
 }
 .user{
     width: auto;
@@ -143,21 +60,87 @@
         background-color: white;
     }
 }
-.box::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-    border-radius: 5px
+.Modal-1{
+    width: fit-content;
+    position: absolute;
+	top: 10%;
+	right: 12%;   
+    .box-noti{
+        width: 400px;
+        height: 600px; 
+        border-radius: 10px;
+        background-color: white;
+        position: relative;
+        .sec{
+            padding: 25px 10px;
+            transition: 0.5s;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-bottom: 1px solid #4d5257;
+            color: black;
+            gap: 20px;
+            position: relative;
+            &:hover{
+                background-color: #BFBFBF;
+            }
+            .profile{
+                width: 75px;
+                height: 75px;
+                background-color: black;
+                border-radius: 50%;
+            }
+            .profCont{
+                .txt{
+                    vertical-align: top;
+                    font-size: 1.25rem;
+                    padding: 5px 10px 0px 15px;
+                }
+                .sub{
+                    font-size: 1rem;
+                    color: grey;
+                }
+            }    
+            .delete-noti{
+                padding-left: 10px;
+                cursor: pointer;
+                z-index: 2;
+            }  
+            .new{
+                position: absolute;
+                top:0px;
+                right: 5px;
+                color: red;
+                font-size: 14px;
+            }                            
+        }
+    }
 }
-.box::-webkit-scrollbar
-{
-	width: 10px;
-	background-color: #F5F5F5;
-    border-radius: 5px
+.Overlay-1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    border: none;
 }
-.box::-webkit-scrollbar-thumb
-{
-	background-color: black;
-	border: 2px solid black;
-    border-radius: 5px
-}
+// .box-noti::-webkit-scrollbar-track
+// {
+// 	// -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+//     background-color: none;
+//     border-radius: 5px
+// }
+// .box-noti::-webkit-scrollbar
+// {
+// 	width: 10px;
+// 	background-color: #a4a5a7;
+//     border-radius: 5px
+// }
+// .box-noti::-webkit-scrollbar-thumb
+// {
+// 	background-color: rgba(0, 0, 0, 0.8);
+// 	// border: 2px solid black;
+//     border-radius: 5px;
+//     position: absolute;
+// }

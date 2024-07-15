@@ -23,7 +23,6 @@ class Main extends Component {
                             style={{ width: '100vh', width: '100%' }}
                             autoHide='true'
                         >
-
                             <SideInfo />
                         </Scrollbars>
                     </div>
