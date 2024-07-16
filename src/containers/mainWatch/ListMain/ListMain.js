@@ -36,7 +36,7 @@ class ListMain extends Component {
     }
     hanldeWatchMovie = (id) => {
         // alert('Movie id: ' + id)
-        this.props.history.push(`/watchMovie/${id}`)
+        this.props.history.push(`/dMovie/${id}`)
     }
     onSearch = () => {
 

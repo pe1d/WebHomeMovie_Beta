@@ -16,9 +16,10 @@ class bodySW extends Component {
     }
     hanldeWatchMovie = (id) => {
         // alert('Movie id: ' + id)
-        this.props.history.push(`/watchMovie/${id}`)
+        this.props.history.push(`/dMovie/${id}`)
     }
     render() {
+
         return (
             <>
                 <CslCont />

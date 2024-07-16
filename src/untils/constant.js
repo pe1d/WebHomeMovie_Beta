@@ -5,7 +5,8 @@ export const path = {
     LOGIN: '/login',
     LOG_OUT: '/logout',
     SYSTEM: '/system',
-    WATCH: '/watchMovie/:id'
+    DETAILMOVIE: '/dMovie/:id',
+    WATCH: '/wMovie/:id',
 };
 
 export const LANGUAGES = {

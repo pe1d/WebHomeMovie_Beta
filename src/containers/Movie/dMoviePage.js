@@ -95,6 +95,9 @@ class dMoviePage extends Component {
             }
         }
     }
+    hanldeWatchMovie = () => {
+        this.props.history.push(`/wMovie/${this.props.match.params.id}`)
+    }
     render() {
         let settings = {
             speed: 500,
@@ -183,7 +186,7 @@ class dMoviePage extends Component {
                             } */}
                             <div className='column-1-4'>
                                 <div className='poster-movie' style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${detailMovie.poster_path})` }}></div>
-                                <div className='btn-watch'><i className="fas fa-play"></i>
+                                <div className='btn-watch' onClick={() => this.hanldeWatchMovie()}><i className="fas fa-play"></i>
                                     <FormattedMessage id='dMoviePage.watch' />
                                 </div>
                             </div>
